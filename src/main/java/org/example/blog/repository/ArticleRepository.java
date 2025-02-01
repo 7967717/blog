@@ -1,15 +1,15 @@
 package org.example.blog.repository;
 
-import org.example.blog.entity.Article;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.example.blog.entity.ArticleEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface ArticleRepository extends PagingAndSortingRepository<Article, Long> {
+public interface ArticleRepository extends JpaRepository<ArticleEntity, Long> {
 
-    List<Article> findByDateLessThan(LocalDateTime date);
+    List<ArticleEntity> findByDateLessThan(LocalDate date);
 
 }

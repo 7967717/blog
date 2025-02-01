@@ -1,0 +1,11 @@
+{
+  "id" : 1,
+  "name" : "ArticleName",
+  "content" : "Content",
+  "date" : "2025-02-01",
+  "genre" : "PULP_FICTION",
+  "author" : {
+    "id" : 1,
+    "name" : "AuthorName"
+  }
+}

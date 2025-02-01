@@ -7,18 +7,18 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@Table(name = "comment")
-public class Comment {
+@Table(name = "article")
+public class ArticleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,11 +26,22 @@ public class Comment {
     private Long id;
 
     @NotNull
+    private String name;
+
+    @NotNull
     private String content;
 
     @NotNull
-    @ManyToOne
-    @JoinColumn(name = "article_id")
-    private Article article;
+    private LocalDate date;
 
+    @NotNull
+    private Genre genre;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private AuthorEntity author;
+
+    public ArticleEntity(String name, String content, LocalDate date, Genre genre, AuthorEntity authorEntity) {
+    }
 }
